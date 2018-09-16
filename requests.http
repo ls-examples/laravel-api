@@ -1,0 +1,48 @@
+GET http://127.0.0.1:8000/api/book?order_by=title&order=desc&search=пушкин
+Accept: "application/json"
+Content-Type: application/json
+
+
+###
+
+POST http://127.0.0.1:8000/api/book/create
+Accept: "application/json"
+Content-Type: application/json
+
+
+{
+    "title": "Евгений Онеги",
+    "author": "Пушкин А.С.",
+    "description": "описание книги"
+}
+
+###
+GET http://127.0.0.1:8000/api/book/3
+Accept: "application/json"
+Content-Type: application/json
+
+
+###
+
+POST http://127.0.0.1:8000/api/book/1/update
+Accept: "application/json"
+Content-Type: application/json
+
+
+{
+    "title": "Евгений Онеги1",
+    "author": "Пушкин А.С1.",
+    "description": "описание книги1",
+    "year": 2018
+}
+
+###
+
+POST http://127.0.0.1:8000/api/book/3/delete
+Accept: "application/json"
+Content-Type: application/json
+
+###
+
+
+
