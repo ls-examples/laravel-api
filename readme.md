@@ -1,6 +1,6 @@
 
-[Демонтсрация](https://books.prod3.dsxack.com/)
-[Репозиторий клиентского приложения](http://books.prod3.dsxack.com/)
+[Демонстрация](https://books.prod3.dsxack.com/)
+[Репозиторий клиентского приложения](https://gitlab.com/tt-books/books-frontend)
 
 # Инструкция по развороту 
 1. composer update
@@ -9,3 +9,7 @@
 4. php artisan migrate --seed
 5. php artisan db:seed --class=BookTableSeeder (по необходимости)
 
+# Запуск тестов
+```
+vendor/bin/phpunit
+```
