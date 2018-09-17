@@ -8,15 +8,55 @@ use App\Http\Requests\SaveBook;
 use App\Http\Resources\Book as BookResource;
 use App\Http\Resources\BookCollection;
 use App\Images\ImageException;
-use App\Images\ImageService;
-use Illuminate\Support\Facades\DB;
+use OpenApi\Annotations as OA;
 
 class BookController extends Controller
 {
 
     /**
-     * @param ListBook $request
-     * @return BookCollection
+     * @OA\Get(
+     *     path="/book",
+     *     @OA\Parameter(
+     *          in="query",
+     *          name="search",
+     *          required=false,
+     *          description="Query for search",
+     *          @OA\Schema(type="string", nullable=true)
+     *     ),
+     *     @OA\Parameter(
+     *          in="query",
+     *          name="order_by",
+     *          required=false,
+     *          description="Field order by",
+     *          @OA\Schema(type="string", nullable=true, enum={"title", "author"})
+     *     ),
+     *     @OA\Parameter(
+     *          in="query",
+     *          name="order_direction",
+     *          required=false,
+     *          description="Order direction",
+     *          @OA\Schema(type="string", nullable=true, enum={"desc", "asc"})
+     *     ),
+     *     @OA\Parameter(
+     *          in="query",
+     *          name="page",
+     *          required=false,
+     *          description="Page number",
+     *          @OA\Schema(type="integer", nullable=true)
+     *     ),
+     *     @OA\Response(
+     *      response="200",
+     *      description="Success reaponse",
+     *     ),
+     *     @OA\Response(
+     *      response="422",
+     *      description="Invalid request",
+     *     ),
+     *     @OA\Response(
+     *      response="500",
+     *      description="Server error",
+     *     ),
+     * )
      */
     public function index(ListBook $request)
     {
@@ -52,7 +92,8 @@ class BookController extends Controller
         $data = $request->all();
         if ($image = $request->get('image')) {
             $data['image_id'] = \Images::saveImage($data['image'])->id;
-
+        } else {
+            $data['image_id'] = null;
         }
         $book->fill($data);
         $book->save();

@@ -13,7 +13,9 @@ Content-Type: application/json
 {
     "title": "Евгений Онеги",
     "author": "Пушкин А.С.",
-    "description": "описание книги"
+    "description": "описание книги",
+    "year": "",
+    "image": ""
 }
 
 ###

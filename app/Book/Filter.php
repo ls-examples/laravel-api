@@ -22,7 +22,7 @@ class Filter
      */
     private $orderDesc = 'desc';
 
-    private $pageSize = 15;
+    private $pageSize = 2;
 
     /**
      * @param null|string $search
