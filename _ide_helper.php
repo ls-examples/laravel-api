@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.2 on 2018-09-16 11:04:24.
+ * Generated for Laravel 5.7.3 on 2018-09-17 21:27:18.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -6036,8 +6036,6 @@ namespace Illuminate\Support\Facades {
      * @method static void log($level, string $message, array $context = [])
      * @method static mixed channel(string $channel = null)
      * @method static \Psr\Log\LoggerInterface stack(array $channels, string $channel = null)
-     * @method static self channel(string $channel)
-     * @method static self stack(array $channels)
      * @see \Illuminate\Log\Logger
      */ 
     class Log {
@@ -13574,6 +13572,26 @@ namespace App\Book\Facades {
         }
          
     }
+
+    /**
+     * 
+     *
+     */ 
+    class BookConverter {
+        
+        /**
+         * 
+         *
+         * @param \App\Http\Requests\SaveBook $request
+         * @return \App\Book\BookDto 
+         * @static 
+         */ 
+        public static function convertFromRequest($request)
+        {
+            return \App\Book\BookConverter::convertFromRequest($request);
+        }
+         
+    }
  
 }
 
@@ -13655,6 +13673,7 @@ namespace App\Images {
          *
          * @param string $base64
          * @return \App\Image 
+         * @throws \App\Images\ImageException
          * @static 
          */ 
         public static function saveImage($base64)
@@ -16088,6 +16107,8 @@ namespace  {
     class View extends \Illuminate\Support\Facades\View {}
 
     class BookFilterConverter extends \App\Book\Facades\FilterConverter {}
+
+    class BookConverter extends \App\Book\Facades\BookConverter {}
 
     class Image extends \Intervention\Image\Facades\Image {}
 

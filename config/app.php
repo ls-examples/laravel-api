@@ -209,6 +209,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'BookFilterConverter' => \App\Book\Facades\FilterConverter::class,
+        'BookConverter' => \App\Book\Facades\BookConverter::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Images' => \App\Images\ImagesFacade::class,
     ],

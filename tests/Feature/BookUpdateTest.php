@@ -91,8 +91,12 @@ class BookUpdateTest extends TestCase
             $dataBaseAttributes = [
                 'id' => $existBook->id,
             ];
+
             foreach ($data as $key => $value) {
                 if ($key == 'image') {
+                    if (!$value) {
+                        $dataBaseAttributes['image_id'] = null;
+                    }
                     continue;
                 }
 

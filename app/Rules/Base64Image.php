@@ -3,7 +3,6 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
-use Image;
 
 
 class Base64Image implements Rule
@@ -57,6 +56,6 @@ class Base64Image implements Rule
      */
     public function message()
     {
-        return 'Изображение невалидно. Максимальный размер 500Kb. Допустимые форматы jpg/jpeg, png, gif.';
+        return trans('validation.base64image');
     }
 }

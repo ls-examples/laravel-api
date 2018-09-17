@@ -17,7 +17,7 @@ class FilterConverter
 
         return (new Filter())
             ->setOrderBy($request->get('order_by', 'id'))
-            ->setOrderDesc($request->get('order_direction', 'desc'))
+            ->setOrderDirection($request->get('order_direction', 'desc'))
             ->setSearch($request->get('search', ''));
     }
 

@@ -13,14 +13,15 @@ class Filter
     private $search = null;
 
     /**
-     * @var null|string
+     * @var string
      */
     private $orderBy = 'id';
 
     /**
-     * @var null |string
+     * @var string
      */
-    private $orderDesc = 'desc';
+    private $orderDirection = 'desc';
+
 
     private $pageSize = 10;
 
@@ -36,10 +37,10 @@ class Filter
     }
 
     /**
-     * @param null|string $orderBy
+     * @param string $orderBy
      * @return Filter
      */
-    public function setOrderBy(?string $orderBy): Filter
+    public function setOrderBy(string $orderBy): Filter
     {
         $this->orderBy = $orderBy;
 
@@ -47,12 +48,12 @@ class Filter
     }
 
     /**
-     * @param null|string $orderDesc
+     * @param string $orderDirection
      * @return Filter
      */
-    public function setOrderDesc(?string $orderDesc): Filter
+    public function setOrderDirection(string $orderDirection): Filter
     {
-        $this->orderDesc = $orderDesc;
+        $this->orderDirection = $orderDirection;
 
         return $this;
     }
@@ -63,8 +64,7 @@ class Filter
      */
     public function search()
     {
-
-        $query = Book::orderBy($this->orderBy, $this->orderDesc)
+        $query = Book::orderBy($this->orderBy, $this->orderDirection)
             ->with('image');
 
         if ($this->search) {
@@ -73,5 +73,29 @@ class Filter
         }
 
         return $query->paginate($this->pageSize);
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSearchValue(): ?string
+    {
+        return $this->search;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrderBy(): string
+    {
+        return $this->orderBy;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrderDirection(): string
+    {
+        return $this->orderDirection;
     }
 }

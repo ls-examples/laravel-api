@@ -83,6 +83,7 @@ window.onload = function() {
 
     requestInterceptor: function() {
       this.headers['X-CSRF-TOKEN'] = '{{ csrf_token() }}';
+      this.headers['accept'] = 'application/json';
       return this;
     },
 

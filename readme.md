@@ -1,6 +1,7 @@
 
 [Демонстрация](https://books.prod3.dsxack.com/)
 [Репозиторий клиентского приложения](https://gitlab.com/tt-books/books-frontend)
+[API](https://booksapi.prod3.dsxack.com/api/documentation)
 
 # Инструкция по развороту 
 1. composer update
