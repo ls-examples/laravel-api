@@ -213,4 +213,8 @@ return [
         'Images' => \App\Images\ImagesFacade::class,
     ],
 
+     /*
+     * Use `https`.
+     */
+    'secure' => (bool) env('APP_SECURE', 0),
 ];

@@ -1,0 +1,10 @@
+/vendor
+/.env
+/Makefile
+/README.MD
+Dockerfile
+.dockerignore
+/README.MD
+Jenkinsfile
+/.git
+docker-compose.yml

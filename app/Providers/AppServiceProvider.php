@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Validator;
+use URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        if (config('app.secure')) {
+            URL::forceScheme('https');
+        }
     }
 
     /**

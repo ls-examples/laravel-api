@@ -1,0 +1,30 @@
+version: '3.4'
+services:
+  backend:
+    image: "books-server:latest"
+    container_name: "books-server"
+    restart: always
+    ports:
+    - "5555:80"
+    environment:
+      DB_HOST: "wdh-mysql"
+      DB_PORT: 3306
+      DB_USERNAME: "root"
+      DB_PASSWORD: "rostov"
+      DB_DATABASE: "books"
+      APP_URL: "http://127.0.0.1:5555"
+      DATETIME_LOCALE: "ru_RU.utf8"
+
+  frontend:
+    image: "registry.prod3.dsxack.com/books-client:latest"
+    container_name: "books-client"
+    restart: always
+    ports:
+    - "5556:3000"
+    environment:
+      REACT_APP_API_URL: "http://127.0.0.1:5555/api"
+
+networks:
+  default:
+    external:
+      name: "wdh_default" #сеть в которой мускул с нужной базой
