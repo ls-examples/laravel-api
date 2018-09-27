@@ -1,9 +1,4 @@
 
-- [Demo](https://books.prod3.dsxack.com/)
+- [Demo](https://books.examples.lilit-web.ru/)
 - [Frontend Repository](https://github.com/ls-examples/react-saga-project)
-- [API documentation](https://booksapi.prod3.dsxack.com/api/documentation)
-
-# Running tests
-```
-vendor/bin/phpunit
-```
+- [API documentation](https://booksapi.examples.lilit-web.ru/api/documentation)
